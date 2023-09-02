@@ -3,6 +3,11 @@ const Blog = require("../models/Blog");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/signup");
 
+
+router.get("/", (req, res) => {
+    res.send("Hello World");
+})
+
 router.get("/blog/:id", async (req, res) => {
     const {id} = req.params;
     const getBlog = await Blog.findById(id);
