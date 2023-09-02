@@ -25,8 +25,7 @@ app.use(express.json());
 app.use(
     cors({
         origin: [
-            "http://localhost:5000",
-            "http://localhost:5173",
+            "https://harun-blog-website.netlify.app",
         ],
         credentials: true,
     }));
