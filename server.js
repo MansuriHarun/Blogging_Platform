@@ -26,7 +26,7 @@ app.use(
     cors({
         origin: [
             "https://blogging-platform-api.onrender.com",
-            "http://localhost:5173",
+            "https://harun-blog-website.netlify.app",
         ],
         credentials: true,
     }));
