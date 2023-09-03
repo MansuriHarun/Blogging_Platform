@@ -23,6 +23,8 @@ const postData = async (e) => {
         headers: {
             "Content-Type": "application/json"
         },
+        mode: "cors",
+        credentials: "include",
         body: JSON.stringify({
             title,
             description
