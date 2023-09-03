@@ -29,13 +29,7 @@ app.use(function (req, res, next) {
 })
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-    cors({
-        origin: [
-            "*",
-        ],
-        credentials: true,
-    }));
+app.use(cors());
 app.use(compression());
 app.use(cookieParser());
 
