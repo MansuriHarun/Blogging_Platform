@@ -22,7 +22,13 @@ connectDatabase();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "https://harun-blog-website.netlify.app",
+        ],
+        credentials: true,
+    }));
 app.use(compression());
 app.use(cookieParser());
 
