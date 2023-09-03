@@ -10,7 +10,10 @@ const AllBlogs = () => {
     const [ blogs, setBlogs ] = useState([]);
     const [decodedToken, setDecodedToken] = useState(null);
     useEffect(() => {
-        fetch("/allblogs")
+        fetch("/allblogs", {
+            mode: "cors",
+            credentials: "include",
+        })
             .then((res) => res.json())
             .then((data) => setBlogs(data))
             .catch((err) => console.log(err))
