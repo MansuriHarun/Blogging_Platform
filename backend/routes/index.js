@@ -8,6 +8,11 @@ router.get("/", (req, res) => {
     res.send("Hello World");
 })
 
+router.get('/cors', (req, res) => {
+res.set('Access-Control-Allow-Origin', 'https://harun-blog-website.netlify.app');
+res.send({ "msg": "This has CORS enabled 🎈" })
+});
+
 router.get("/blog/:id", async (req, res) => {
     const {id} = req.params;
     const getBlog = await Blog.findById(id);
