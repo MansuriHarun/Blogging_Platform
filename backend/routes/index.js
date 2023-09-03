@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 })
 
 router.get('/cors', (req, res) => {
-res.set('Access-Control-Allow-Origin', 'https://harun-blog-website.netlify.app');
+res.set('Access-Control-Allow-Origin', '*');
 res.send({ "msg": "This has CORS enabled 🎈" })
 });
 
