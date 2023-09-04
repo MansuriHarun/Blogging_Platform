@@ -19,13 +19,12 @@ const SignUp = () => {
     const UserData = async (e) => {
         e.preventDefault();
         const { email, password } = user;
-        const res = await fetch("/signup", {
+        const res = await fetch("https://blogging-platform-api.onrender.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             mode: "cors",
-            credentials: "include",
             body: JSON.stringify({
                 email,
                 password
