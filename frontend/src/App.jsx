@@ -9,9 +9,6 @@ import SignIn from "./Components/SignIn";
 import NotFoundPage from "./Components/NotFoundPage";
 import axios from "axios";
 
-
-axios.defaults.withCredentials = true;
-
 function App() {
   return(
     <>
