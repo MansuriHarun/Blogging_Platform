@@ -42,7 +42,6 @@ router.post("/signin", async(req, res) => {
         }    
         const token = jwt.sign({_id: user._id}, process.env.SECRET_KEY);
         res.cookie("UserId", token, {
-            httpOnly: true,
             expires: new Date(Date.now() + 60 * 60 * 1000),
         });
         res.status(200).json({message: "You are now logged in successfully"});
