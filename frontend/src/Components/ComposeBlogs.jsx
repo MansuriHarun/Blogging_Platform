@@ -18,13 +18,12 @@ const handleBlogs = (e) => {
 const postData = async (e) => {
     e.preventDefault();
     const { title, description } = composes;
-    const res = await fetch("/compose", {
+    const res = await fetch("https://blogging-platform-api.onrender.com/compose", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
         },
         mode: "cors",
-        credentials: "include",
         body: JSON.stringify({
             title,
             description
