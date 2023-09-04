@@ -27,7 +27,7 @@ const AllBlogs = () => {
             }
     }, []);
     const handleDelete = (id) => {
-        axios.delete("/delete/" + id)
+        axios.delete("https://blogging-platform-api.onrender.com/delete/" + id)
         .then(() => {
             toast.error("Deleted Successfully");
         }).catch((err) => console.log(err))
