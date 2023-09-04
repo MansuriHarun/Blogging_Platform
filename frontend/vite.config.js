@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     proxy: {
       "/compose": "https://blogging-platform-api.onrender.com",
-      "/allblogs": "https://blogging-platform-api.onrender.com",
       "/delete": "https://blogging-platform-api.onrender.com",
       "/signup": "https://blogging-platform-api.onrender.com",
       "/signin": "https://blogging-platform-api.onrender.com",
