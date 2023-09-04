@@ -12,7 +12,7 @@ const Header = () => {
   isLogin = isLogin || Cookies.get("UserId");
   const dispach = useDispatch();
   const deleteCookie = () => {
-    axios.get("/logout").then(() => {
+    axios.get("https://blogging-platform-api.onrender.com/logout").then(() => {
       dispach(authActions.logout());
       toast.warning("You have been logged out");
     }).catch((err) => {
