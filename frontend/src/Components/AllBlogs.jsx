@@ -12,7 +12,6 @@ const AllBlogs = () => {
     useEffect(() => {
         fetch("https://blogging-platform-api.onrender.com/allblogs", {
             mode: "cors",
-            credentials: "include",
         })
             .then((res) => res.json())
             .then((data) => setBlogs(data))
