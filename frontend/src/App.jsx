@@ -7,7 +7,6 @@ import AllBlogs from "./Components/AllBlogs";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import NotFoundPage from "./Components/NotFoundPage";
-import axios from "axios";
 
 function App() {
   return(
