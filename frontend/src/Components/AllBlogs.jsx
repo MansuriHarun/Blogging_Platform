@@ -10,7 +10,7 @@ const AllBlogs = () => {
     const [ blogs, setBlogs ] = useState([]);
     const [decodedToken, setDecodedToken] = useState(null);
     useEffect(() => {
-        fetch("/allblogs", {
+        fetch("https://blogging-platform-api.onrender.com/allblogs", {
             mode: "cors",
             credentials: "include",
         })
