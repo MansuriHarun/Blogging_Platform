@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AllBlogs = () => {
     const [ blogs, setBlogs ] = useState([]);
+    const loggedInUserId = localStorage.getItem("UserId");
     useEffect(() => {
         fetch("https://blogging-platform-api.onrender.com/allblogs", {
             mode: "cors",
@@ -13,7 +14,6 @@ const AllBlogs = () => {
             .then((res) => res.json())
             .then((data) => setBlogs(data))
             .catch((err) => console.log(err))
-            const loggedInUserId = localStorage.getItem("UserId");
     }, []);
     const handleDelete = (id) => {
         axios.delete("https://blogging-platform-api.onrender.com/delete/" + id)
