@@ -1,8 +1,5 @@
 const router = require("express").Router();
 const Blog = require("../models/Blog");
-const jwt = require("jsonwebtoken");
-const UserModel = require("../models/signup");
-
 
 router.get("/", (req, res) => {
     res.send("Hello World");
@@ -21,11 +18,8 @@ router.get("/blog/:id", async (req, res) => {
             return res.status(404).json({ message: "Blog not found" });
         }
 
-        const { UserId } = req.cookies;
+        const UserId = localStorage.getItem("UserId");
         if (UserId) {
-            const decodedToken = jwt.verify(UserId, process.env.SECRET_KEY);
-            const userId = decodedToken._id;
-
             // Check if the user's ID matches the author's ID of the blog
             if (getBlog.author.toString() === userId) {
                 await Blog.deleteOne({ _id: id });
