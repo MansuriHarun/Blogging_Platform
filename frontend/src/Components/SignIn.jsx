@@ -19,7 +19,7 @@ const SignIn = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const res = await fetch("https://blogging-platform-api.onrender.com/signin", {
+    const res = await fetch("/signin", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
