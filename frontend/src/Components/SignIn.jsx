@@ -43,7 +43,7 @@ const SignIn = () => {
       toast.error("Unexpected response from the server");
     }
     else{
-      localStorage.setItem("UserId", userId);
+      sessionStorage.setItem("UserId", userId);
       dispach(authActions.login());
       toast.success("You are now authenticated");
       Navigation("/");
