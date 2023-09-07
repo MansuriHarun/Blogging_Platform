@@ -31,31 +31,4 @@ router.get("/search", async (req, res) => {
     }
 });
 
-
-// Pagination Route
-
-// router.get("/allblogs", async(req, res) => {
-//   const blogsPerPage = 10;
-//     try {
-//     const page = parseInt(req.query.page) || 1; // Get the requested page number from the query parameters
-
-//     // Calculate the skip value based on the page number and blogsPerPage
-//     const skip = (page - 1) * blogsPerPage;
-
-//     // Fetch blogs for the current page
-//     const blog = await Blog.find()
-//       .skip(skip)
-//       .limit(blogsPerPage)
-//       .exec();
-
-//     res.json({
-//       success: true,
-//       page,
-//       blog,
-//     });
-//   } catch (error) {
-//     res.status(500).json({ success: false, message: 'Error fetching blogs' });
-//   }
-// });
-
 module.exports = router;
