@@ -45,14 +45,6 @@ router.post("/signin", async(req, res) => {
     }
 });
 
-// Logout Route
-// router.get("/logout", (req, res) => {
-//     res.cookie("UserId", null, {
-//         expires: new Date(Date.now())
-//     })
-//     res.json("Cookie is Destroyed");
-// });
-
 // Get All Users Route
 router.get("/getAllUsers", async (req, res) => {
     const allUsers = await UserModel.find();
