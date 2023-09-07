@@ -29,7 +29,6 @@ const SignIn = () => {
     });
 
     const data = await res.json();
-    const userId = data._id;
     if(res.status === 400) {
       toast.error("Invalid Email");
     }
@@ -43,7 +42,6 @@ const SignIn = () => {
       toast.error("Unexpected response from the server");
     }
     else{
-      sessionStorage.setItem("UserId", userId);
       dispach(authActions.login());
       toast.success("You are now authenticated");
       Navigation("/");
