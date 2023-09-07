@@ -18,7 +18,7 @@ const handleBlogs = (e) => {
 const postData = async (e) => {
     e.preventDefault();
     const { title, description } = composes;
-    const res = await fetch("", {
+    const res = await fetch("/compose", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
