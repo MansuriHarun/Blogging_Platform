@@ -11,7 +11,7 @@ router.post("/compose", async (req, res) => {
             return res.status(422).json({ error: "Fill the required fields" });
         }
 
-        const UserId = localStorage.getItem("UserId");
+        const UserId = sessionStorage.getItem("UserId");
         const user = await UserModel.findById(UserId);
             if (user) {
             const newBlog = new Blog({ title, description, author: UserId });
@@ -29,7 +29,7 @@ router.post("/compose", async (req, res) => {
 
 // Check Cookies Route
 router.get("/checklocalstorage", (req, res) => {
-    const UserId = localStorage.getItem("UserId");
+    const UserId = sessionStorage.getItem("UserId");
     if(UserId) {
         res.send("Local Storage iss available");
     }
