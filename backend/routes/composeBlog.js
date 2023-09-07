@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Blog = require("../models/Blog");
 const UserModel = require("../models/signup");
-const jwt = require("jsonwebtoken");
 
 // Compose BLog Route
 router.post("/compose", async (req, res) => {
@@ -11,23 +10,17 @@ router.post("/compose", async (req, res) => {
         if (!title || !description) {
             return res.status(422).json({ error: "Fill the required fields" });
         }
-        const {UserId} = req.cookies;
-        if(UserId) {
-            const decodedToken = jwt.verify(UserId, process.env.SECRET_KEY);
-            const userId = decodedToken._id;
 
-            const user = await UserModel.findById(userId);
-        
-            if (!user) {
-                return res.status(401).json({ message: "User not found" });
-            }
-            const newBlog = new Blog({ title, description, author: userId });
+        const UserId = localStorage.getItem("UserId");
+        const user = await UserModel.findById(UserId);
+            if (user) {
+            const newBlog = new Blog({ title, description, author: UserId });
             await newBlog.save();
             return res.status(201).json({ message: "Blog post created successfully" });
-        }
-        else{
-            return res.status(401).json({message: "You must be logged in"});
-        }
+            }
+            else{
+                return res.status(401).json({message: "You must be logged in"});
+            }
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: "Failed to create blog post" });
@@ -35,13 +28,13 @@ router.post("/compose", async (req, res) => {
 });
 
 // Check Cookies Route
-router.get("/checkCookies", (req, res) => {
-    const {UserId} = req.cookies;
+router.get("/checklocalstorage", (req, res) => {
+    const UserId = localStorage.getItem("UserId");
     if(UserId) {
-        res.send("Cookies are available");
+        res.send("Local Storage iss available");
     }
     else{
-        res.send("No cookies available");
+        res.send("Local Storage is not available");
     }
 })
 
