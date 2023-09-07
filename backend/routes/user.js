@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const UserModel = require("../models/signup");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 
 // Signup route
 router.post("/signup", async (req, res) => {
@@ -39,24 +38,20 @@ router.post("/signin", async(req, res) => {
         }
         if(!email || !password) {
             res.status(422).json({error: "Fill the required fields"})
-        }    
-        const token = jwt.sign({_id: user._id}, process.env.SECRET_KEY);
-        res.cookie("UserId", token, {
-            expires: new Date(Date.now() + 60 * 60 * 1000),
-        });
-        res.status(200).json({message: "You are now logged in successfully"});
+        }
+        res.status(200).json({_id: user._id, message: "You are now logged in successfully"});
     } catch (error) {
         console.log(error);
     }
 });
 
 // Logout Route
-router.get("/logout", (req, res) => {
-    res.cookie("UserId", null, {
-        expires: new Date(Date.now())
-    })
-    res.json("Cookie is Destroyed");
-});
+// router.get("/logout", (req, res) => {
+//     res.cookie("UserId", null, {
+//         expires: new Date(Date.now())
+//     })
+//     res.json("Cookie is Destroyed");
+// });
 
 // Get All Users Route
 router.get("/getAllUsers", async (req, res) => {
