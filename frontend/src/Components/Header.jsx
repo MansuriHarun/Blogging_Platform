@@ -7,11 +7,11 @@ import { authActions } from '../redux/store';
 
 const Header = () => {
   let isLogin = useSelector((state) => state.isLogin);
-  isLogin = isLogin || localStorage.getItem("UserId");
+  isLogin = isLogin || sessionStorage.getItem("UserId");
   const dispach = useDispatch();
     const deleteStorage = () => {
     try {
-      localStorage.removeItem("UserId");    
+      sessionStorage.removeItem("UserId");    
       dispach(authActions.logout());
       toast.warning("You have been logged out");  
     } catch (error) {
