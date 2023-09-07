@@ -28,13 +28,13 @@ router.post("/compose", async (req, res) => {
 });
 
 // Check Cookies Route
-router.get("/checklocalstorage", (req, res) => {
+router.get("/checksession", (req, res) => {
     const UserId = sessionStorage.getItem("UserId");
     if(UserId) {
-        res.send("Local Storage iss available");
+        res.send("Session Storage is available");
     }
     else{
-        res.send("Local Storage is not available");
+        res.send("Session Storage is not available");
     }
 })
 
