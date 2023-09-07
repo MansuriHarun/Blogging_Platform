@@ -2,7 +2,6 @@ const express = require("express");
 const connectDatabase = require("./config/database");
 const cors = require("cors");
 const compression = require("compression");
-const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const app = express();
 
@@ -31,8 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(compression());
-app.use(cookieParser());
-
 
 // Routes
 app.use(require("./routes/composeBlog"));
