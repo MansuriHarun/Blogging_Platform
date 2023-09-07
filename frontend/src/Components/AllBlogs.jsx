@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AllBlogs = () => {
     const [ blogs, setBlogs ] = useState([]);
-    const loggedInUserId = localStorage.getItem("UserId");
+    const loggedInUserId = sessionStorage.getItem("UserId");
     useEffect(() => {
         fetch("https://blogging-platform-api.onrender.com/allblogs", {
             mode: "cors",
