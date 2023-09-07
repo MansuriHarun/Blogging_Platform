@@ -39,7 +39,7 @@ router.post("/signin", async(req, res) => {
         if(!email || !password) {
             res.status(422).json({error: "Fill the required fields"})
         }
-        window.sessionStorage.setItem("UserId", _id: user._id);
+        window.sessionStorage.setItem("UserId", JSON.stringify({ _id: user._id }));
         res.status(200).json({_id: user._id, message: "You are now logged in successfully"});
     } catch (error) {
         console.log(error);
