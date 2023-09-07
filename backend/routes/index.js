@@ -18,7 +18,7 @@ router.get("/blog/:id", async (req, res) => {
             return res.status(404).json({ message: "Blog not found" });
         }
 
-        const UserId = localStorage.getItem("UserId");
+        const UserId = sessionStorage.getItem("UserId");
         if (UserId) {
             // Check if the user's ID matches the author's ID of the blog
             if (getBlog.author.toString() === userId) {
@@ -34,20 +34,5 @@ router.get("/blog/:id", async (req, res) => {
         res.status(500).json({ error: "Failed to delete blog" });
     }
 });
-// .get("/edit/:id", async (req, res) => {
-//     const {id} = req.params;
-//     const getBlog = await Blog.findById(id);
-//     res.redirect("/allblogs", {getBlog})
-// }).post("/edit/:id", async (req, res) => {
-//     const {id} = req.params;
-//     const { title, description } = req.body;
-//     Blog.updateOne({ id }, { title, description }).then(() => {
-//         res.json({message: "Updated"});
-//         console.log("Blog updated successfully");
-//     }).catch((err) => {
-//         console.log(err);
-//     })
-// })
-
 
 module.exports = router;
