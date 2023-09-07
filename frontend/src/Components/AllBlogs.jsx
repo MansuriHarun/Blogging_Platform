@@ -8,7 +8,7 @@ const AllBlogs = () => {
     const [ blogs, setBlogs ] = useState([]);
     const loggedInUserId = sessionStorage.getItem("UserId");
     useEffect(() => {
-        fetch("", {
+        fetch("/allblogs", {
             mode: "cors",
         })
             .then((res) => res.json())
@@ -16,7 +16,7 @@ const AllBlogs = () => {
             .catch((err) => console.log(err))
     }, []);
     const handleDelete = (id) => {
-        axios.delete("" + id)
+        axios.delete("/delete/" + id)
         .then(() => {
             toast.error("Deleted Successfully");
         }).catch((err) => console.log(err))
